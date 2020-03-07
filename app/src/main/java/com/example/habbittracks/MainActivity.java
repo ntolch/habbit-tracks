@@ -9,7 +9,12 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Adapter;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -34,10 +39,12 @@ public class MainActivity extends AppCompatActivity {
         HabitAdapter adapter = new HabitAdapter(listOfHabits) ;
         recyclerView.setAdapter(adapter);
 
-
-        for (int i = 0; i < listOfHabits.size(); i++) {
-            Log.i("\n**HABITS", listOfHabits.get(i));
-            Log.i("list number", String.valueOf(i));
-        }
+        FloatingActionButton addNewHabit = findViewById(R.id.addNewHabitButton);
+        addNewHabit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Add a habit", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
     }
 }

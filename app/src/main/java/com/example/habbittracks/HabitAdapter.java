@@ -21,16 +21,16 @@ public class HabitAdapter extends RecyclerView.Adapter {
     private ArrayList<String> habits;
     public TextView habitView;
 
-    public HabitAdapter(ArrayList<String> listOfHabits) {
+    HabitAdapter(ArrayList<String> listOfHabits) {
         habits = listOfHabits;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView habitView;
+        TextView habitView;
 //        public TextView habitView;
 //        public View layout;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
 //            layout = v;
             habitView = v.findViewById(R.id.habitTextView);
@@ -68,10 +68,8 @@ public class HabitAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         if (habits != null) {
-            Log.i("\n\n**Size of habits list", String.valueOf(habits.size()));
             return habits.size();
         } else {
-            Log.i("\n\n****No HABITS","???");
             return 0;
         }
     }
